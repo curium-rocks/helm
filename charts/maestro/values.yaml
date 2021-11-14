@@ -1,0 +1,18 @@
+image:
+  repository: docker pull ghcr.io/curium-rocks/maestro-docker
+  pullPolicy: IfNotPresent
+  tag: "main"
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+podAnnotations: {}
+podSecurityContext: {}
+securityContext: {}
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
