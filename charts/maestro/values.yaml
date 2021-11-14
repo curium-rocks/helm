@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/curium-rocks/maestro-docker
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   tag: "main"
 imagePullSecrets: []
 nameOverride: ""
