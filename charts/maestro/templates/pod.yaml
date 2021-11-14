@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: v1
 kind: Pod
 metadata:
   name: {{ include "maestro.fullname" . }}
@@ -26,14 +26,6 @@ spec:
         - name: http
           containerPort: 80
           protocol: TCP
-      livenessProbe:
-        httpGet:
-          path: /
-          port: http
-      readinessProbe:
-        httpGet:
-          path: /
-          port: http
       resources:
         {{- toYaml .Values.resources | nindent 12 }}
   {{- with .Values.nodeSelector }}
