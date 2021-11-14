@@ -1,5 +1,5 @@
 image:
-  repository: docker pull ghcr.io/curium-rocks/maestro-docker
+  repository: ghcr.io/curium-rocks/maestro-docker
   pullPolicy: IfNotPresent
   tag: "main"
 imagePullSecrets: []
