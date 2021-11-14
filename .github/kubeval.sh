@@ -39,7 +39,6 @@ for CHART_DIR in ${CHART_DIRS}; do
   (cd charts/${CHART_DIR}; helm dependency build)
   helm template \
     $apis \
-    --values charts/"${CHART_DIR}"/ci/ci-values.yaml \
     charts/"${CHART_DIR}" | kubeval \
       --strict \
       --ignore-missing-schemas \
