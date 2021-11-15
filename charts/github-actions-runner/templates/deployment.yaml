@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "github-actions-runner.fullname" . }}
+  labels:
+    {{- include "github-actions-runner.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "github-actions-runner.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "github-actions-runner.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "github-actions-runner.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          {{- if .Values.enterpriseUrl }}
+           - name: RUNNER_ENTERPRISE_URL
+             value: "{{ .Values.enterpriseUrl }}"
+          {{- end }}
+          {{- if .Values.organizationUrl }}        
+           - name: RUNNER_ORGANIZATION_URL
+             value: "{{ .Values.organizationUrl }}"
+          {{- end }}
+          {{- if .Values.repositoryUrl }}
+           - name: RUNNER_REPOSITORY_URL
+             value: "{{ .Values.repositoryUrl }}"
+          {{- end }}
+          {{- if .Values.token.secretName }}
+           - name: GITHUB_TOKEN
+             valueFrom:
+              secretKeyRef:
+                name: "{{ .Values.token.secretName }}"
+                key: "{{ .Values.token.secretKeyName }}"
+          {{- else }}
+            - name: GITHUB_TOKEN
+              value: "{{ .Values.token }}"
+          {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
