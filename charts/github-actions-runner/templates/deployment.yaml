@@ -46,6 +46,10 @@ spec:
            - name: RUNNER_REPOSITORY_URL
              value: "{{ .Values.repositoryUrl }}"
           {{- end }}
+          {{- if .Values.runnerLabels }}
+           - name: RUNNER_LABELS
+             value: "{{ join "," .Values.runnerLabels  }}"
+          {{- end }}
           {{- if .Values.token.secretName }}
            - name: GITHUB_TOKEN
              valueFrom:

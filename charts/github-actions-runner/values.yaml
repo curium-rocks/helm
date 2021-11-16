@@ -4,9 +4,9 @@
 
 replicaCount: 1
 image:
-  repository: ghcr.io/curium-rocks/centos-actions-runner
+  repository: ghcr.io/curium-rocks/ubuntu-actions-runner
   pullPolicy: IfNotPresent
-  tag: "539bed3615a775ab3617d8ea322fbdc57c28f26d"
+  tag: "2a56fb140a42cc727cfafb8286cc265d504c7f68"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -17,6 +17,11 @@ serviceAccount:
 organizationUrl: ~
 enterpriseUrl: ~
 runnerRepoUrl: ~
+runnerLabels: 
+  - self-hosted
+  - linux
+  - ubuntu
+  - k8s
 token:
   secretName: github-token
   secretKeyName: token
