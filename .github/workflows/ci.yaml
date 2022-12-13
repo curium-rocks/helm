@@ -5,6 +5,5 @@ on:
       - 'charts/**'
 jobs:
   qa:
-    needs: build-container
     name: Helm QA
     uses: curium-rocks/flows/.github/workflows/helm-qa.yml@main
