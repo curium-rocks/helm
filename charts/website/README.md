@@ -15,7 +15,7 @@ A Helm chart for the curium.rocks website
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
-| autoscaling.enabled | bool | `true` |  |
+| autoscaling.enabled | bool | `false` |  |
 | autoscaling.maxReplicas | int | `25` |  |
 | autoscaling.minReplicas | int | `3` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
@@ -28,7 +28,7 @@ A Helm chart for the curium.rocks website
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext.fsGroup | int | `1000` |  |
-| replicaCount | int | `3` |  |
+| replicaCount | int | `1` |  |
 | resources.limits.cpu | string | `"256m"` |  |
 | resources.limits.memory | string | `"128Mi"` |  |
 | resources.requests.cpu | string | `"256m"` |  |
