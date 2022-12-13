@@ -1,0 +1,40 @@
+replicaCount: 3
+image:
+  repository: ghcr.io/curium-rocks/website
+  pullPolicy: Always
+  tag: "main"
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+serviceAccount:
+  create: false
+  annotations: {}
+  name: ""
+podAnnotations: {}
+podSecurityContext:
+  fsGroup: 1000
+securityContext:
+  capabilities:
+    drop:
+    - ALL
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 1000
+service:
+  type: ClusterIP
+  port: 80
+resources:
+  limits:
+    cpu: 256m
+    memory: 128Mi
+  requests:
+    cpu: 256m
+    memory: 128Mi
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 25
+  targetCPUUtilizationPercentage: 80
+nodeSelector: {}
+tolerations: []
+affinity: {}
