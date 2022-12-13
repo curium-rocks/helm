@@ -7,3 +7,5 @@ jobs:
   qa:
     name: Helm QA
     uses: curium-rocks/flows/.github/workflows/helm-qa.yml@main
+    with:
+      charts_dir: 'charts'
