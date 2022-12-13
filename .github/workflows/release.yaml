@@ -5,7 +5,7 @@ on:
       - main
     paths:
       - "charts/**"
-      - ".github/release.yaml"
+      - ".github/workflows/release.yaml"
 jobs:
   release:
     name: 'Helm'
