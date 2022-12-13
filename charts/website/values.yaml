@@ -1,4 +1,4 @@
-replicaCount: 3
+replicaCount: 1
 image:
   repository: ghcr.io/curium-rocks/website
   pullPolicy: Always
@@ -31,7 +31,7 @@ resources:
     cpu: 256m
     memory: 128Mi
 autoscaling:
-  enabled: true
+  enabled: false
   minReplicas: 3
   maxReplicas: 25
   targetCPUUtilizationPercentage: 80

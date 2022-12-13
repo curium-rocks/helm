@@ -1,6 +1,6 @@
 # website
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.0](https://img.shields.io/badge/AppVersion-0.0.0-informational?style=flat-square)
+![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.0](https://img.shields.io/badge/AppVersion-0.0.0-informational?style=flat-square)
 
 A Helm chart for the curium.rocks website
 
@@ -15,7 +15,7 @@ A Helm chart for the curium.rocks website
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
-| autoscaling.enabled | bool | `true` |  |
+| autoscaling.enabled | bool | `false` |  |
 | autoscaling.maxReplicas | int | `25` |  |
 | autoscaling.minReplicas | int | `3` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
@@ -28,7 +28,7 @@ A Helm chart for the curium.rocks website
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext.fsGroup | int | `1000` |  |
-| replicaCount | int | `3` |  |
+| replicaCount | int | `1` |  |
 | resources.limits.cpu | string | `"256m"` |  |
 | resources.limits.memory | string | `"128Mi"` |  |
 | resources.requests.cpu | string | `"256m"` |  |
