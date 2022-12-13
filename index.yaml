@@ -3,6 +3,18 @@ entries:
   website:
   - apiVersion: v2
     appVersion: 0.0.0
+    created: "2022-12-13T04:07:31.348078695Z"
+    description: A Helm chart for the curium.rocks website
+    digest: 53dc38d0867d3c7eb732b92ddc5ba087273c07a7db7d211b30b5b6cc3ca22d58
+    maintainers:
+    - name: bryopsida
+    name: website
+    type: application
+    urls:
+    - https://github.com/curium-rocks/helm/releases/download/website-0.2.0/website-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 0.0.0
     created: "2022-12-13T03:34:38.844516976Z"
     description: A Helm chart for the curium.rocks website
     digest: 74d56a712b065718e5c8ab34c31eb1339a2315efb95fc5b070c3571357281e24
@@ -13,4 +25,4 @@ entries:
     urls:
     - https://github.com/curium-rocks/helm/releases/download/website-0.1.0/website-0.1.0.tgz
     version: 0.1.0
-generated: "2022-12-13T03:34:38.844521576Z"
+generated: "2022-12-13T04:07:31.348085995Z"
