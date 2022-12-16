@@ -1,0 +1,8 @@
+apiVersion: v2
+name: github-actions-runner
+description: A Helm chart for the github actions runner
+type: application
+version: 0.1.0
+appVersion: "2.283.3"
+maintainers:
+  - name: 'bryopsida'
